@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("random_image"),
         ),
-        body: const Center(
+        body: Center(
           child: RandomImages(),
         ),
       ),
@@ -23,14 +23,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class RandomImages extends StatelessWidget {
-  const RandomImages({super.key});
-  // void onPressed = ;
+class RandomImages extends StatefulWidget {
+  RandomImages({super.key});
+
+  @override
+  _RandomImagesState createState() => _RandomImagesState();
+}
+
+class _RandomImagesState extends State<RandomImages> {
+  var image_url = 'images/nature1.jpg';
+
+  void onPressed() {
+    setState(() {
+      image_url = 'images/nature2.jpg';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ElevatedButton(onPressed: () {}, child: const Text("button")),
+    return Column(
+      children: [
+        Container(
+          child: Image.asset(image_url),
+        ),
+        Container(
+          child: ElevatedButton(
+            onPressed: onPressed,
+            child: const Text('button'),
+          ),
+        ),
+      ],
+
     );
   }
 }
