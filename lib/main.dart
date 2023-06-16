@@ -15,7 +15,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("random_image"),
         ),
+        body: const Center(
+          child: RandomImages(),
+        ),
       ),
+    );
+  }
+}
+
+class RandomImages extends StatelessWidget {
+  const RandomImages({super.key});
+  // void onPressed = ;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ElevatedButton(onPressed: () {}, child: const Text("button")),
     );
   }
 }
