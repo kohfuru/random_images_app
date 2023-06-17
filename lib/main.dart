@@ -36,8 +36,8 @@ class _RandomImagesState extends State<RandomImages> {
 
   void onPressed() {
     setState(() {
-
-      image_url = 'images/image1.jpg';
+      int randomNum = math.Random().nextInt(17) + 1;
+      image_url = 'images/image$randomNum.jpg';
     });
   }
 
@@ -51,15 +51,26 @@ class _RandomImagesState extends State<RandomImages> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Image.asset(image_url),
-        ElevatedButton(
-          onPressed: onPressed,
-          child: const Text('button'),
+        SizedBox(
+          width: double.infinity,
+          height: 600,
+          child: Image.asset(image_url),
         ),
-        ElevatedButton(
-          onPressed: reStart,
-          child: const Text('restart')
+        Row(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: reStart,
+              child: const Text('restart'),
+            ),
+            ElevatedButton(
+              onPressed: onPressed,
+              child: const Text('button')
+            )
+          ],
         )
+
       ],
 
     );
