@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 void main() {
   runApp(const MyApp());
@@ -31,27 +32,34 @@ class RandomImages extends StatefulWidget {
 }
 
 class _RandomImagesState extends State<RandomImages> {
-  var image_url = 'images/nature1.jpg';
+  var image_url = 'images/image0.jpg';
 
   void onPressed() {
     setState(() {
-      image_url = 'images/nature2.jpg';
+
+      image_url = 'images/image1.jpg';
+    });
+  }
+
+  void reStart() {
+    setState(() {
+      image_url = 'images/image0.jpg';
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        Container(
-          child: Image.asset(image_url),
+      children: <Widget>[
+        Image.asset(image_url),
+        ElevatedButton(
+          onPressed: onPressed,
+          child: const Text('button'),
         ),
-        Container(
-          child: ElevatedButton(
-            onPressed: onPressed,
-            child: const Text('button'),
-          ),
-        ),
+        ElevatedButton(
+          onPressed: reStart,
+          child: const Text('restart')
+        )
       ],
 
     );
