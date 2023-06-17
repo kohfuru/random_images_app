@@ -57,7 +57,6 @@ class _RandomImagesState extends State<RandomImages> {
           child: Image.asset(image_url),
         ),
         Row(
-          // mainAxisAlignment: MainAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             ElevatedButton(
@@ -70,9 +69,7 @@ class _RandomImagesState extends State<RandomImages> {
             )
           ],
         )
-
       ],
-
     );
   }
 }
